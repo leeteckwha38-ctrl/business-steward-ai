@@ -1,39 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Steward AI</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@1.8.10/dist/tailwind.min.css" rel="stylesheet">
+    <title>商业管家 AI</title>
 </head>
 <body>
-    <header>
-        <h1>Business Steward AI</h1>
+    <header class="bg-blue-500 p-4 text-white">
+        <h1 class="text-2xl">商业管家 AI 应用</h1>
+        <nav class="mt-2">
+            <a href="#销售管理" class="mr-4">销售管理</a>
+            <a href="#库存管理" class="mr-4">库存管理</a>
+            <a href="#物流跟踪">物流跟踪</a>
+            <a href="#AI诊断">AI诊断</a>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#sales-dashboard">Sales Dashboard</a></li>
-            <li><a href="#inventory-management">Inventory Management</a></li>
-            <li><a href="#logistics-tracking">Logistics Tracking</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="sales-dashboard">
-            <h2>Sales Dashboard</h2>
-            <div id="sales-data"></div>
+    <main class="p-4">
+        <section id="销售管理" class="mt-4 mb-8">
+            <h2 class="text-xl font-bold">销售管理</h2>
+            <div>
+                <!-- 销售管理功能代码 -->
+            </div>
         </section>
-        <section id="inventory-management">
-            <h2>Inventory Management</h2>
-            <div id="inventory-data"></div>
+        <section id="库存管理" class="mt-4 mb-8">
+            <h2 class="text-xl font-bold">库存管理</h2>
+            <div>
+                <!-- 库存管理功能代码 -->
+            </div>
         </section>
-        <section id="logistics-tracking">
-            <h2>Logistics Tracking</h2>
-            <div id="logistics-data"></div>
+        <section id="物流跟踪" class="mt-4 mb-8">
+            <h2 class="text-xl font-bold">物流跟踪</h2>
+            <div>
+                <!-- 物流跟踪功能代码 -->
+            </div>
+        </section>
+        <section id="AI诊断" class="mt-4 mb-8">
+            <h2 class="text-xl font-bold">AI诊断</h2>
+            <div>
+                <!-- AI诊断功能代码 -->
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Business Steward AI. All rights reserved.</p>
+    <footer class="bg-gray-200 p-4 text-center">
+        <p>© 2026 商业管家 AI. 保留所有权利。</p>
     </footer>
-    <script src="app.js"></script>
 </body>
 </html>
