@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Random Joke Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+        <h1 class="text-xl font-bold mb-4 text-center">Random Joke Generator</h1>
+        <select id="jokeCategory" class="mb-4 p-2 border rounded">
+            <option value="Programming">Programming</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+            <option value="Dark">Dark</option>
+            <option value="Spooky">Spooky</option>
+            <option value="Christmas">Christmas</option>
+        </select>
+        <button id="getJokeBtn" class="mb-4 w-full bg-blue-500 text-white p-2 rounded">Get a Joke</button>
+        <div id="jokeDisplay" class="border p-4 rounded mb-4 text-gray-700"></div>
+        <button id="copyBtn" class="w-full bg-green-500 text-white p-2 rounded">Copy to Clipboard</button>
+        <h2 class="mt-4 font-semibold">Joke History</h2>
+        <ul id="jokeHistory" class="mt-2 border rounded overflow-hidden"></ul>
+    </div>
+
+    <script>
+        let jokeHistory = [];
+
+        function updateJokeHistory(joke) {
+            jokeHistory.push(joke);
+            $('#jokeHistory').append(`<li class='p-2 border-b'>${joke}</li>`);
+        }
+
+        $('#getJokeBtn').click(function() {
+            const category = $('#jokeCategory').val();
+            $.get(`https://v2.jokeapi.dev/joke/${category}?single=false`, function(data) {
+                if (data.joke) {
+                    $('#jokeDisplay').text(data.joke);
+                    updateJokeHistory(data.joke);
+                } else {
+                    $('#jokeDisplay').text(data.setup + ' - ' + data.delivery);
+                    updateJokeHistory(data.setup + ' - ' + data.delivery);
+                }
+            });
+        });
+
+        $('#copyBtn').click(function() {
+            const joke = $('#jokeDisplay').text();
+            navigator.clipboard.writeText(joke).then(() => {
+                alert('Joke copied to clipboard!');
+            });
+        });
+    </script>
+</body>
+</html>
